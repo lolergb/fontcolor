@@ -1,0 +1,48 @@
+@import 'elements.less';
+
+// CONFIG
+@typeOne 		: 'overlay';
+@typeOneUrl 	: 'font/DIN_OSP-Overlay.ttf';
+@typeOneFormat 	: 'truetype';
+@typeTwo 		: 'original';
+@typeTwoUrl 	: 'font/DIN_OSP-Original.ttf';
+@typeTwoFormat 	: 'truetype';
+@attrBefore		: attr(glyph);
+@attrAfter		: attr(glyphalt);
+@attrOnlyText	: attr(title);
+@colorTypeOne	: #E64A33;
+@colortypeTwo	: #F19B8E;
+
+@font-face {
+    font-family: @typeOne;
+    src: url(@typeOneUrl) format(@typeOneFormat);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: @typeTwo;
+    src: url(@typeTwoUrl) format(@typeOneFormat);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.duofont {
+	position: relative;
+	font-family: @typeOne;
+	color: @colorTypeOne;
+	font-size: 5em;
+	.tex-config();
+	.featureFont();
+	&::after {
+		content:@attrOnlyText; 
+		position: absolute;
+		left: 0px;
+		top: 0; //look at otf
+		right: 0px;
+		bottom: 0px;
+		z-index: -1;
+		font-family: @typeTwo;
+		color: @colortypeTwo;
+	}
+}

@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  <your title>: José Mª Román Gálvez <your name>
+  Site: http://www.bynewroman.com
+  Twitter: @josergb
+  Location: Madrid (Spain)
+
+/* THANKS */
+  Names (& URL): 
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:

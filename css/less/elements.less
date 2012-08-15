@@ -1,0 +1,282 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, @start),
+                               color-stop(1, @stop));
+  background: -ms-linear-gradient(bottom,
+                                  @start,
+                                  @stop);
+  background: -moz-linear-gradient(center bottom,
+                                   @start 0%,
+                                   @stop 100%);
+}
+.bw-gradient(@color: #F5F5F5, @start: 0, @stop: 255) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, rgb(@start,@start,@start)),
+                               color-stop(1, rgb(@stop,@stop,@stop)));
+  background: -ms-linear-gradient(bottom,
+                                  rgb(@start,@start,@start) 0%,
+                                  rgb(@start,@start,@start) 100%);
+  background: -moz-linear-gradient(center bottom,
+                                   rgb(@start,@start,@start) 0%,
+                                   rgb(@stop,@stop,@stop) 100%);
+}
+
+.tex-config(){
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.featureFont(){
+  -moz-font-feature-settings:  "liga", "ss05";
+  -ms-font-feature-settings:  "liga", "ss05";
+  -webkit-font-feature-settings:  "liga", "ss05";
+  -o-font-feature-settings:  "liga", "ss05";
+  font-feature-settings: "liga", "ss05";
+}
+
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+.rounded(@radius: 2px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+}
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  transition-duration: @duration;
+}
+.rotation(@deg:5deg){
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+.scale(@ratio:1.5){
+  -webkit-transform:scale(@ratio);
+  -moz-transform:scale(@ratio);
+  transform:scale(@ratio);
+}
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+.translate(@x:0, @y:0) {
+  -moz-transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+@raidus: 5px;
+@widthLi: 142px;
+@heightLi: 44px;
+
+
+.paletteUl(@colorInput: #fff) {
+  margin: 0 4px;
+  padding: 0px;
+
+  li { 
+    width: @widthLi;
+    height: @heightLi;
+  }
+
+  li:first-child {
+    .border-radius(@raidus, 0px, 0px, @raidus);
+  }
+
+  li:last-child {
+  .border-radius(0px, @raidus, @raidus, 0px);
+  }
+
+  li { color: black; padding: 8px 16px; line-height: 44px}
+
+  li.color-0 {
+    white-space: pre-wrap;
+    background-color: @colorInput;
+  }
+
+  li.color-0::after {
+    content: '@{colorInput}';
+  }
+
+  li.color-1 {
+ 
+    background-color: lighten(@colorInput, 5%);
+
+  }
+
+  @colorInput-1: lighten(@colorInput, 5%);
+
+  li.color-1::after {
+    content: '@{colorInput-1}';
+  }
+
+  li.color-2 {
+ 
+    background-color: lighten(@colorInput, 10%);
+  }
+
+  @colorInput-2: lighten(@colorInput, 10%);
+
+  li.color-2::after {
+    content: '@{colorInput-2}';
+  }
+
+  li.color-3 {
+ 
+    background-color: lighten(@colorInput, 15%);
+  }
+
+  @colorInput-3: lighten(@colorInput, 15%);
+
+  li.color-3::after {
+    content: '@{colorInput-3}';
+  }
+
+
+  li.color-4 {
+ 
+    background-color: lighten(@colorInput, 20%);
+  }
+
+  @colorInput-4: lighten(@colorInput, 20%);
+
+  li.color-4::after {
+    content: '@{colorInput-4}';
+  }
+
+  li.color-5 {
+ 
+    background-color: darken(@colorInput, 5%);
+  }
+
+  @colorInput-5: darken(@colorInput, 5%);
+
+  li.color-5::after {
+    content: '@{colorInput-5}';
+  }
+
+  li.color-6 {
+ 
+    background-color: darken(@colorInput, 10%);
+  }
+
+  @colorInput-6: darken(@colorInput, 10%);
+
+  li.color-6::after {
+    content: '@{colorInput-6}';
+  }
+
+  li.color-7 {
+ 
+    background-color: darken(@colorInput, 15%);
+  }
+
+  @colorInput-7: darken(@colorInput, 15%);
+
+  li.color-7::after {
+    content: '@{colorInput-7}';
+  }
+
+  li.color-8 {
+ 
+    background-color: darken(@colorInput, 20%);
+  }
+
+  @colorInput-8: darken(@colorInput, 20%);
+
+  li.color-8::after {
+    content: '@{colorInput-8}';
+  }
+}

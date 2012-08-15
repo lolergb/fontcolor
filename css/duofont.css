@@ -1,0 +1,56 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+@font-face {
+  font-family: 'overlay';
+  src: url('font/DIN_OSP-Overlay.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'original';
+  src: url('font/DIN_OSP-Original.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.duofont {
+  position: relative;
+  font-family: 'overlay';
+  color: #e64a33;
+  font-size: 5em;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-font-feature-settings: "liga", "ss05";
+  -ms-font-feature-settings: "liga", "ss05";
+  -webkit-font-feature-settings: "liga", "ss05";
+  -o-font-feature-settings: "liga", "ss05";
+  font-feature-settings: "liga", "ss05";
+}
+.duofont::after {
+  content: attr(title);
+  position: absolute;
+  left: 0px;
+  top: 0;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  font-family: 'original';
+  color: #f19b8e;
+}
