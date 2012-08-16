@@ -10,8 +10,8 @@
 @attrBefore		: attr(glyph);
 @attrAfter		: attr(glyphalt);
 @attrOnlyText	: attr(title);
-@colorTypeOne	: #E64A33;
-@colortypeTwo	: #F19B8E;
+@colortypeUp	: darken(#232119, 10%);
+@colortypeDown	: lighten(#232119, 15%); //#C3B794;
 
 @font-face {
     font-family: @typeOne;
@@ -30,8 +30,8 @@
 .duofont {
 	position: relative;
 	font-family: @typeOne;
-	color: @colorTypeOne;
-	font-size: 5em;
+	color: @colortypeUp;
+	font-size: 12em;
 	.tex-config();
 	.featureFont();
 	&::after {
@@ -43,6 +43,22 @@
 		bottom: 0px;
 		z-index: -1;
 		font-family: @typeTwo;
-		color: @colortypeTwo;
+		color: @colortypeDown;
 	}
+}
+
+body {
+	background-color: #F7EF79; //EDD776 F7EF79;
+	text-align: center;
+}
+
+#exampleText {
+	margin: 136px 0px;
+	letter-spacing: 3px;
+}
+
+button {
+	.rounded(5px);
+	padding: 16px 32px;
+	border: none;
 }

@@ -14,4 +14,5 @@ var collectorText = function() {
 
 $(document).ready(function() {
 	collectorText();
+	$('.duofont').live('keyup', function(){ collectorText(); });
 });
